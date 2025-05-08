@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScanFood - Escáner de Comida</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>ScanFood</h1>
+        <p>Escanea alimentos y obtén información nutricional al instante</p>
+    </header>
+
+    <main>
+        <section id="scanner-page" class="active">
+            <h2>Escanear producto</h2>
+            <div id="scanner-container"></div>
+            <button onclick="startScanner()">Escanear código de barras</button>
+        </section>
+
+        <section id="product-info-page" class="hidden">
+            <h2>Información del Producto</h2>
+            <img id="product-image" src="" alt="Imagen del producto" class="product-image">
+            <h3 id="product-name">Nombre del producto</h3>
+            <p id="product-brand">Marca</p>
+
+            <h4>Nutrientes</h4>
+            <ul id="product-nutrients"></ul>
+
+            <h4>Ingredientes</h4>
+            <p id="product-ingredients"></p>
+
+            <button onclick="showPage('scanner-page')">Escanear otro producto</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ScanFood. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
